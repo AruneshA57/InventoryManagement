@@ -1,24 +1,35 @@
 package com.AruneshSWE.InventoryManagement.model;
 
-public class Items {
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+public class Items implements Serializable {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false,updatable = false)
     private String dressName;
+    @Column(nullable = false,updatable = false)
     private char category;
-    private String dressType;
+    @Column(nullable = false,updatable = true)
     private float cost;
+    @Column(nullable = false,updatable = true)
     private int availableQty;
 
-    public Items(Long id, String dressName, char category, String dressType, float cost, int availableQty) {
+    public Items(Long id, String dressName, char category, float cost, int availableQty) {
         this.id = id;
         this.dressName = dressName;
         this.category = category;
-        this.dressType = dressType;
         this.cost = cost;
         this.availableQty = availableQty;
     }
 
     public Items() {
     }
+
 
     public Long getId() {
         return id;
@@ -32,9 +43,6 @@ public class Items {
         return category;
     }
 
-    public String getDressType() {
-        return dressType;
-    }
 
     public float getCost() {
         return cost;
@@ -56,9 +64,6 @@ public class Items {
         this.category = category;
     }
 
-    public void setDressType(String dressType) {
-        this.dressType = dressType;
-    }
 
     public void setCost(float cost) {
         this.cost = cost;
@@ -74,9 +79,10 @@ public class Items {
                 "id=" + id +
                 ", dressName='" + dressName + '\'' +
                 ", category=" + category +
-                ", dressType='" + dressType + '\'' +
                 ", cost=" + cost +
                 ", availableQty=" + availableQty +
                 '}';
     }
+
+
 }
