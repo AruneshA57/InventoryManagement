@@ -1,7 +1,5 @@
 package com.AruneshSWE.InventoryManagement.model;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -18,13 +16,16 @@ public class Items implements Serializable {
     private float cost;
     @Column(nullable = false,updatable = true)
     private int availableQty;
+    @Column(nullable = false,updatable = false)
+    private String itemsCode;
 
-    public Items(Long id, String dressName, char category, float cost, int availableQty) {
+    public Items(Long id, String dressName, char category, float cost, int availableQty, String itemsCode) {
         this.id = id;
         this.dressName = dressName;
         this.category = category;
         this.cost = cost;
         this.availableQty = availableQty;
+        this.itemsCode = itemsCode;
     }
 
     public Items() {
@@ -81,8 +82,15 @@ public class Items implements Serializable {
                 ", category=" + category +
                 ", cost=" + cost +
                 ", availableQty=" + availableQty +
+                ", itemsCode='" + itemsCode + '\'' +
                 '}';
     }
 
+    public String getItemsCode() {
+        return itemsCode;
+    }
 
+    public void setItemsCode(String itemsCode) {
+        this.itemsCode = itemsCode;
+    }
 }
