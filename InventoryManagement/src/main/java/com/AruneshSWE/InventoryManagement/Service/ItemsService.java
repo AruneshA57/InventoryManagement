@@ -34,13 +34,10 @@ public class ItemsService {
     }
 
     public void deleteItemsById(Long id){
-        itemsRepo.deleteById(id);
+        itemsRepo.deleteItemsById(id);
     }
 
     public Items findItemsById(Long id) throws Throwable {
         return itemsRepo.findItemsById(id).orElseThrow(()-> new UserNotFoundException("items by id "+id+" not found"));
     }
-
-
-
 }

@@ -9,7 +9,7 @@ public class Items implements Serializable {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false,updatable = false)
-    private String dressName;
+    private String itemsName;
     @Column(nullable = false,updatable = false)
     private char category;
     @Column(nullable = false,updatable = true)
@@ -19,9 +19,9 @@ public class Items implements Serializable {
     @Column(nullable = false,updatable = false)
     private String itemsCode;
 
-    public Items(Long id, String dressName, char category, float cost, int availableQty, String itemsCode) {
+    public Items(Long id, String itemsName, char category, float cost, int availableQty, String itemsCode) {
         this.id = id;
-        this.dressName = dressName;
+        this.itemsName = itemsName;
         this.category = category;
         this.cost = cost;
         this.availableQty = availableQty;
@@ -36,8 +36,8 @@ public class Items implements Serializable {
         return id;
     }
 
-    public String getDressName() {
-        return dressName;
+    public String getItemsName() {
+        return itemsName;
     }
 
     public char getCategory() {
@@ -57,8 +57,8 @@ public class Items implements Serializable {
         this.id = id;
     }
 
-    public void setDressName(String dressName) {
-        this.dressName = dressName;
+    public void setItemsName(String dressName) {
+        this.itemsName = dressName;
     }
 
     public void setCategory(char category) {
@@ -78,7 +78,7 @@ public class Items implements Serializable {
     public String toString() {
         return "Items{" +
                 "id=" + id +
-                ", dressName='" + dressName + '\'' +
+                ", dressName='" + itemsName + '\'' +
                 ", category=" + category +
                 ", cost=" + cost +
                 ", availableQty=" + availableQty +

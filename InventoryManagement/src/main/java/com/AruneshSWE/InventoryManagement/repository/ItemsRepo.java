@@ -8,4 +8,9 @@ import java.util.Optional;
 public interface ItemsRepo extends JpaRepository<Items,Long> {
 
    Optional<Items> findItemsById(Long id);
+
+
+
+
+   void deleteItemsById(Long id);
 }
